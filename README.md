@@ -1,37 +1,36 @@
-# shell_script
+## Shell Scripting First Experience
 
-## Automated Readability Index Formula(ARIF)
-Automated Readability Index (ARI)  calculates and determines the corresponding grade level for a given text file.ARI score is calculated based on the number of characters, words, and sentences in the text.It generates a score approximating the U.S. grade level and according to this grade level ARIF is calculated.
+### Introduction
 
-     Automated Readability Index formula(ARIF): 4.71 x (characters/words) + 0.5 x (words/sentences) – 21.43.
+This repository contains my first shell scripting experience. I created a simple script to automate a tasks to calculate Automated Readability Index, and this README documents contains my experience, the challenges I faced, and what I learned during the process.
 
-### Step-by-step implementation of ARI code involves:
-1.Initially the script checks if a filename is provided as an argument.If no filename is provided, it returns a usage message and exits with code1.
+### My Experience
 
-2.Then calculating the word count, character count and sentence count using the below formulas:
-                 
-          > character_count is calculated using `wc -m`.
+Learning with shell scripting was both exciting and challenging. Initially, I was unfamiliar with many of the commands and syntax used in shell scripts since shell scripting was a new concept to me. However, with some research and practice, I started to understand the basics for this I have refered youtube videos and along with online tutorials from javatpoint and tutorialspoint.
 
-          > word_count counts the number of words using `wc -w`.
+### Learning Strategy
 
-          >sentence_count counts the number of sentences by looking for punctuation marks (., !, ?) using grep and `wc -l `in which` grep -o '[.!?]`' "$file": This searches the file for occurrences of              the characters ., !, and ?, and -o ensures that only the matching characters are output.
+Understanding Commands- One of the first things I learned was how to use basic shell commands like echo, mkdir, and date. Understanding how to combine these commands in a script was crucial.
 
-3.Handle Zero Sentences:
+   Scripting Syntax: Learning the syntax for shell scripting, such as using `'$(command)'` to execute a command and get its output, was an essential thing. I also learned about the importance of the shebang `(#!/bin/bash)` at the beginning of the script.
 
-    If sentence_count is zero, it sets sentence_count to 1 to avoid division by zero in the ARI calculation.
+### Challenges Faced
 
-4.Calculating ARI using the above mentioned ARI formula and and` bc `for floating-point arithmetic.
+Debugging: Debugging shell scripts can be soo tricky. I had to learn how to use `echo `statements effectively to track the flow of the script and identify where things were going wrong.
+    
+Permissions: I ran into issues with permissions when trying to execute my script. I learned how to use `chmod +x example_script.sh` to make the script executable.
 
-5.Checking grade level based on the calculated ARI along with `| bc -l` and this pipes the arithmetic expression to bc with the` -l` option, to ensure math library is used for accurate floating-point arithmetic. 
+### What I Learned From Shell Scripting
 
-### Problems occured while implementing the code and Soutions encountered for solving the errors:
-Problem faced during the implementation is that after finding the char count, word count and sentence count this division by zero occured if the word count is zero, which leads to errors in the ARI calculation and by using `$word_count -eq 0` code the problem is resolved and also since bash cannot handle floating point values to resolve this problem ,used` bc `for floating point arithemetic comparison.
+Basic Shell Commands: I now have a good understanding of basic shell commands and how to use them in scripts.
 
-### References used for implementing the code:
-For learning the basics of shell programming I have refered online tutorials like javatpoint and tutorialspoint along with waching youtube tutorials and also took some of the code from chatgpt for reference.
+Script Structure: I learned how to structure a shell script, including using comments to make the script more readable.
 
-### Conclusion:
-The Automated Readability Index (ARI) script provides an efficient solution for evaluating the readability of text files. By incorporating various Unix commands like grep, wc, and bc, the script accurately counts characters, words, and sentences, enabling the calculation of an ARI score indicative of the text's complexity.Along with this,the problem gives a platform to learn shell programming commands.These developments would further enhance the utility and accessibility of the ARI calculation tool, contributing to its effectiveness in assessing and enhancing the readability of written content.
+Error Handling: Although basically, I started to understand the importance of handling errors and ensuring my script runs smoothly.
+
+### Conclusion
+Overall, my first experience with shell scripting was highly educational and make me to know the basic structure of a shell script. It provided me with a foundational understanding of how scripts can automate tasks and make working with the terminal more efficient. I look forward to exploring more advanced scripting techniques in the upcoming projects.
+
 
 
 
